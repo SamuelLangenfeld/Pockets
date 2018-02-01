@@ -67,6 +67,7 @@ export function getPouch(id) {
 }
 
 export function newPouch(data) {
+  //data should like { name, userId }
   var myHeaders = new Headers();
 
   myHeaders.append("content-type", "application/json");
@@ -139,6 +140,8 @@ export function updatePouchRequest() {
 }
 
 export function updatePouch(data) {
+  // data should look like { name, userId, itemIds }
+
   var myHeaders = new Headers();
   let { name, userId, itemIds } = data;
 
@@ -173,6 +176,8 @@ export function updatePouch(data) {
 }
 
 export function setCurrentPouch(data) {
+  //data should look like { pouchId }
+
   let pouchId = data.pouchId;
   return dispatch => {
     dispatch(setCurrentPouchRequest());
@@ -221,6 +226,8 @@ export function setCurrentPouchFailure(error) {
 }
 
 export function deletePouch(data) {
+  //data should look like { pouchId }
+
   const id = data.id;
   return dispatch => {
     dispatch(deletePouchRequest());

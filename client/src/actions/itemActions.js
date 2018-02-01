@@ -38,6 +38,9 @@ export function newItemRequest() {
 }
 
 export function newItem(data) {
+  //data should look like
+
+  // { pouchId, item: { itemName, link } }
   let item = data.item;
   let pouchId = data.pouchId;
   var myHeaders = new Headers();
@@ -72,6 +75,8 @@ export function newItem(data) {
 }
 
 export function deleteItem(data) {
+  //data should look like { itemId, pouchId }
+
   return dispatch => {
     dispatch(deleteItemRequest());
     let { itemId, pouchId } = data;
@@ -139,6 +144,8 @@ export function getItemFailure(error) {
 }
 
 export function getItem(data) {
+  //data should look like { itemId }
+
   let itemId = data.itemId;
   return dispatch => {
     dispatch(getItemRequest());

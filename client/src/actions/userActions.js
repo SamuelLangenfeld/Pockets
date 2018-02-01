@@ -46,6 +46,8 @@ export function getUserPouchesRequest() {
 }
 
 export function getUserPouches(user) {
+  //user should look like {_id, ... }
+
   return dispatch => {
     dispatch(getUserPouchesRequest());
     fetch(`${server}/pouches/${user._id}`, {
@@ -108,6 +110,8 @@ export function logoutRequest() {
 }
 
 export function login(user) {
+  //user should look like { username, password, ... }
+
   return dispatch => {
     const requestOptions = {
       credentials: "same-origin",
@@ -151,6 +155,7 @@ export function userDeleteFailure() {
 }
 
 export function deleteUser(data) {
+  //data should look like {_id, ...}
   return dispatch => {
     dispatch(userDeleteRequest());
 
@@ -194,6 +199,7 @@ export function registerRequest() {
 }
 
 export function registerUser(data) {
+  //data should look like { username, email, password }
   return dispatch => {
     let { username, email, password } = data;
     dispatch(registerRequest());
